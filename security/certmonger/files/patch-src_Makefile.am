@@ -1,0 +1,80 @@
+--- src/Makefile.am.orig	2018-10-31 15:09:43 UTC
++++ src/Makefile.am
+@@ -150,7 +150,7 @@ pkglibexecdir = $(libexecdir)/$(PACKAGE)
+ getcert_CFLAGS = $(AM_CFLAGS) $(NSS_CFLAGS) $(UUID_CFLAGS)
+ getcert_SOURCES = getcert.c tm.c tm.h
+ getcert_LDADD = libcm.a $(GETCERT_LIBS) $(KRB5_LIBS) $(NSS_LIBS) $(UUID_LIBS) \
+-			$(POPT_LIBS) $(LTLIBICONV)
++			$(POPT_LIBS) $(LTLIBICONV) $(LTLIBINTL)
+ if WITH_IPA
+ bin_PROGRAMS += ipa-getcert
+ ipa_getcert_CFLAGS = $(getcert_CFLAGS)
+@@ -176,11 +176,13 @@ certmonger_getcert_CFLAGS = $(getcert_CFLAGS)
+ certmonger_SOURCES = main.c env-system.c tm.c tm.h
+ certmonger_LDADD = libcm.a \
+ 		   $(OPENSSL_LIBS) $(CERTMONGER_LIBS) $(KRB5_LIBS) $(IDN_LIBS) \
+-		   $(GMP_LIBS) $(UUID_LIBS) $(POPT_LIBS) $(LTLIBICONV)
++		   $(GMP_LIBS) $(UUID_LIBS) $(POPT_LIBS) $(LTLIBICONV) \
++		   $(LTLIBINTL)
+ certmonger_session_SOURCES = main.c env-session.c tm.c tm.h
+ certmonger_session_LDADD = libcm.a \
+ 		   $(OPENSSL_LIBS) $(CERTMONGER_LIBS) $(KRB5_LIBS) $(IDN_LIBS) \
+-		   $(GMP_LIBS) $(UUID_LIBS) $(POPT_LIBS) $(LTLIBICONV)
++		   $(GMP_LIBS) $(UUID_LIBS) $(POPT_LIBS) $(LTLIBICONV) \
++		   $(LTLIBINTL)
+ noinst_PROGRAMS = tdbusm-check serial-check nl-check submit-x toklist
+ tdbusm_check_SOURCES = tdbusm-check.c tm.c tm.h
+ tdbusm_check_LDADD = libcm.a $(CERTMONGER_LIBS) $(POPT_LIBS)
+@@ -211,13 +213,14 @@ ipa_submit_SOURCES = ipa.c srvloc.c srvloc.h store.h s
+ 		submit-e.h util.c util.h log.c log.h tm.c tm.h
+ ipa_submit_LDADD = $(XMLRPC_LIBS) $(LDAP_LIBS) $(KRB5_LIBS) $(TALLOC_LIBS) \
+ 		   $(GMP_LIBS) $(IDN_LIBS) $(OPENSSL_LIBS) $(UUID_LIBS) \
+-		   $(RESOLV_LIBS) $(LTLIBICONV) $(POPT_LIBS)
++		   $(RESOLV_LIBS) $(LTLIBICONV) $(POPT_LIBS) $(LTLIBINTL)
+ certmaster_submit_CFLAGS = $(AM_CFLAGS) $(NSS_CFLAGS)
+ certmaster_submit_SOURCES = certmaster.c submit-x.c submit-x.h \
+ 		submit-e.h submit-u.c submit-u.h util.c util.h log.c log.h \
+ 		tm.c tm.h
+ certmaster_submit_LDADD = $(XMLRPC_LIBS) $(KRB5_LIBS) $(TALLOC_LIBS) \
+-			  $(GMP_LIBS) $(UUID_LIBS) $(LTLIBICONV) $(POPT_LIBS)
++			  $(GMP_LIBS) $(UUID_LIBS) $(LTLIBICONV) $(POPT_LIBS) \
++			  $(LTLIBINTL)
+ dogtag_ipa_renew_agent_submit_CFLAGS = $(AM_CFLAGS) $(XML_CFLAGS) \
+ 				       $(NSS_CFLAGS) $(CURL_CFLAGS) \
+ 				       -DDOGTAG_IPA_RENEW_AGENT=1
+@@ -229,7 +232,7 @@ dogtag_ipa_renew_agent_submit_SOURCES = dogtag.c submi
+ dogtag_ipa_renew_agent_submit_LDADD = $(CURL_LIBS) $(XML_LIBS) $(NSS_LIBS) \
+ 				      $(OPENSSL_LIBS) $(TALLOC_LIBS) \
+ 				      $(GMP_LIBS) $(UUID_LIBS) $(LTLIBICONV) \
+-				      $(POPT_LIBS)
++				      $(POPT_LIBS) $(LTLIBINTL)
+ dogtag_submit_CFLAGS = $(AM_CFLAGS) $(XML_CFLAGS) $(NSS_CFLAGS) $(CURL_CFLAGS)
+ dogtag_submit_SOURCES = dogtag.c submit-d.c submit-d.h \
+ 		submit-h.c submit-h.h util-m.c util-m.h util-n.c util-n.h \
+@@ -239,7 +242,7 @@ dogtag_submit_SOURCES = dogtag.c submit-d.c submit-d.h
+ dogtag_submit_LDADD = $(CURL_LIBS) $(XML_LIBS) $(NSS_LIBS) \
+ 		      $(OPENSSL_LIBS) $(TALLOC_LIBS) \
+ 		      $(GMP_LIBS) $(UUID_LIBS) $(LTLIBICONV) \
+-		      $(POPT_LIBS)
++		      $(POPT_LIBS) $(LTLIBINTL)
+ scep_submit_CFLAGS = $(AM_CFLAGS) $(XML_CFLAGS) $(NSS_CFLAGS) $(CURL_CFLAGS)
+ scep_submit_SOURCES = scep.c scep.h \
+ 		submit-h.c submit-h.h util-m.c util-m.h util-o.c util-o.h \
+@@ -248,14 +251,15 @@ scep_submit_SOURCES = scep.c scep.h \
+ 		prefs-o.c prefs-o.h scep-o.c scep-o.h env.h env-system.c
+ scep_submit_LDADD = $(CURL_LIBS) $(XML_LIBS) $(NSS_LIBS) \
+ 		      $(OPENSSL_LIBS) $(TALLOC_LIBS) \
+-		      $(GMP_LIBS) $(UUID_LIBS) $(LTLIBICONV) $(POPT_LIBS)
++		      $(GMP_LIBS) $(UUID_LIBS) $(LTLIBICONV) $(POPT_LIBS) \
++		      $(LTLIBINTL)
+ local_submit_CFLAGS = $(AM_CFLAGS) $(NSS_CFLAGS)
+ local_submit_SOURCES = local.c env.h store.h store-gen.c submit-o.c submit-o.h \
+ 		       submit-u.c submit-u.h env-session.c env-shared.c log.c \
+ 		       log.h prefs.c prefs.h prefs-o.c prefs-o.h tm.c tm.h \
+ 		       util.c util.h util-o.c util-o.h pin.c pin.h
+ local_submit_LDADD = $(NSS_LIBS) $(OPENSSL_LIBS) $(TALLOC_LIBS) $(UUID_LIBS) \
+-		     $(POPT_LIBS)
++		     $(POPT_LIBS) $(LTLIBINTL)
+ submit_d_CFLAGS = $(AM_CFLAGS) $(CURL_CFLAGS) $(XML_CFLAGS) -DCM_SUBMIT_D_MAIN
+ submit_d_SOURCES = submit-d.c submit-d.h submit-h.c submit-h.h \
+ 		   submit-u.c submit-u.h log.c log.h tm.c tm.h util-m.c util-m.h

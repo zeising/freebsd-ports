@@ -1,0 +1,27 @@
+--- configure.ac.orig	2018-10-31 11:18:49 UTC
++++ configure.ac
+@@ -385,13 +385,13 @@ if ! ${configure_dist_target_only:-false} ; then
+ 				 ])
+ 		AC_MSG_CHECKING([if NETSCAPE_SPKI.sig_algor is a pointer or a struct])
+ 		have_sig_algor_pointer=unknown
+-		AC_LINK_IFELSE(AC_LANG_PROGRAM([
++		AC_LINK_IFELSE([AC_LANG_PROGRAM([
+ 			#include <stddef.h>
+ 			#include <openssl/x509.h>
+ 			],[
+ 			NETSCAPE_SPKI spki;
+ 			spki.sig_algor = NULL;
+-			]),
++			])],
+ 			AC_DEFINE(CM_NETSCAPE_SPKI_SIG_ALGOR_IS_POINTER,1,[Define if NETSCAPE_SPKI.sig_algor is a pointer])
+ 			have_sig_algor_pointer="pointer to X509_ALGOR",
+ 			have_sig_algor_pointer=X509_ALGOR
+@@ -594,7 +594,7 @@ if ! ${configure_dist_target_only:-false} ; then
+ 		AC_CHECK_TYPE(SECKEYDSAPublicKey,,,
+ 			      [
+ 			      AC_INCLUDES_DEFAULT
+-			      #include <nss3/keythi.h>
++			      #include <nss/keythi.h>
+ 			      ])
+ 		CFLAGS="$CFLAGSsave"
+ 		LIBS="$LIBSsave"

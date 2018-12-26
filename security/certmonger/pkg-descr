@@ -1,0 +1,9 @@
+The certmonger daemon monitors certificates for impending expiration, and can
+optionally refresh soon-to-be-expired certificates with the help of a CA. If
+told to, it can drive the entire enrollment process from key generation through
+enrollment and refresh.
+
+It can work with either flat files, like those used by OpenSSL, or with NSS
+databases.
+
+WWW: https://www.freeipa.org/page/Certmonger

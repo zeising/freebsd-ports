@@ -68,6 +68,7 @@
     SUBDIR += ccrypt
     SUBDIR += ccsrch
     SUBDIR += certificate-transparency
+    SUBDIR += certmonger
     SUBDIR += cfs
     SUBDIR += cfv
     SUBDIR += chaosreader
