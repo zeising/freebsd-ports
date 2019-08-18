@@ -1,14 +1,14 @@
---- plugin/x/configure.cmake.orig	2018-04-08 06:44:49 UTC
+--- plugin/x/configure.cmake.orig	2019-06-25 10:23:30 UTC
 +++ plugin/x/configure.cmake
-@@ -44,6 +44,7 @@ CONFIGURE_FILE(${MYSQLX_PROJECT_DIR}/src
- CONFIGURE_FILE(${MYSQLX_PROJECT_DIR}/src/mysqlx_version.h.in
+@@ -46,6 +46,7 @@ CONFIGURE_FILE(${MYSQLX_PROJECT_DIR}/src/config/mysqlx
+ CONFIGURE_FILE(${MYSQLX_PROJECT_DIR}/src/config/mysqlx_version.h.in
                 ${MYSQLX_GENERATE_DIR}/mysqlx_version.h )
  
 +IF(FALSE)
  INSTALL(FILES ${MYSQLX_GENERATE_DIR}/mysqlx_error.h
          DESTINATION ${INSTALL_INCLUDEDIR}
          COMPONENT Development)
-@@ -55,3 +56,4 @@ INSTALL(FILES ${MYSQLX_GENERATE_DIR}/mys
+@@ -57,3 +58,4 @@ INSTALL(FILES ${MYSQLX_GENERATE_DIR}/mysqlx_ername.h
  INSTALL(FILES ${MYSQLX_GENERATE_DIR}/mysqlx_version.h
          DESTINATION ${INSTALL_INCLUDEDIR}
          COMPONENT Development)

@@ -1,6 +1,6 @@
---- client/CMakeLists.txt.orig	2018-12-20 20:14:03 UTC
+--- client/CMakeLists.txt.orig	2019-06-25 10:23:30 UTC
 +++ client/CMakeLists.txt
-@@ -26,14 +26,14 @@ INCLUDE(${MYSQL_CMAKE_SCRIPT_DIR}/compil
+@@ -26,14 +26,14 @@ INCLUDE_DIRECTORIES(
  
  ## Subdirectory with common client code.
  ADD_SUBDIRECTORY(base)
@@ -17,15 +17,15 @@
  
  IF(NOT WITHOUT_SERVER)
    MYSQL_ADD_EXECUTABLE(mysql_upgrade upgrade/program.cc)
-@@ -56,6 +56,7 @@ ADD_DEPENDENCIES(mysqltest GenError GenC
- ADD_CONVENIENCE_LIBRARY(mysqlcheck_core check/mysqlcheck_core.cc)
+@@ -57,6 +57,7 @@ ADD_DEPENDENCIES(mysqltest GenError GenClientError)
+ ADD_LIBRARY(mysqlcheck_core STATIC check/mysqlcheck_core.cc)
  TARGET_LINK_LIBRARIES(mysqlcheck_core mysqlclient)
  
 +IF(FALSE)
  MYSQL_ADD_EXECUTABLE(mysqlcheck check/mysqlcheck.cc)
  TARGET_LINK_LIBRARIES(mysqlcheck mysqlcheck_core)
  
-@@ -68,7 +69,9 @@ TARGET_LINK_LIBRARIES(mysqlimport mysqlc
+@@ -69,7 +70,9 @@ TARGET_LINK_LIBRARIES(mysqlimport mysqlclient)
  
  MYSQL_ADD_EXECUTABLE(mysqlshow mysqlshow.cc)
  TARGET_LINK_LIBRARIES(mysqlshow mysqlclient)
@@ -35,7 +35,7 @@
  MYSQL_ADD_EXECUTABLE(mysqlbinlog mysqlbinlog.cc)
  SET(MYSQLBINLOG_LIB_SOURCES
    ${CMAKE_SOURCE_DIR}/strings/decimal.cc
-@@ -107,12 +110,15 @@ TARGET_LINK_LIBRARIES(mysqlslap mysqlcli
+@@ -110,10 +113,12 @@ TARGET_LINK_LIBRARIES(mysqlslap mysqlclient)
  
  MYSQL_ADD_EXECUTABLE(mysql_config_editor mysql_config_editor.cc)
  TARGET_LINK_LIBRARIES(mysql_config_editor mysqlclient)
@@ -46,8 +46,5 @@
  
 +IF(FALSE)
  MYSQL_ADD_EXECUTABLE(mysql_ssl_rsa_setup mysql_ssl_rsa_setup.cc path.cc logger.cc)
- TARGET_LINK_LIBRARIES(mysql_ssl_rsa_setup mysys mysys_ssl)
-+ENDIF()
+ TARGET_LINK_LIBRARIES(mysql_ssl_rsa_setup mysys)
  
- # "WIN32" also covers 64 bit. "echo" is used in some files below "mysql-test/".
- IF(WIN32)

@@ -1,6 +1,6 @@
---- sql/mysqld.cc.orig	2018-10-07 08:44:22 UTC
+--- sql/mysqld.cc.orig	2019-06-25 10:23:30 UTC
 +++ sql/mysqld.cc
-@@ -4493,7 +4493,7 @@ static int warn_self_signed_ca() {
+@@ -4795,7 +4795,7 @@ static int init_thread_environment() {
  
  static PSI_memory_key key_memory_openssl = PSI_NOT_INSTRUMENTED;
  
@@ -9,7 +9,7 @@
  #define FILE_LINE_ARGS
  #else
  #define FILE_LINE_ARGS , const char *, int
-@@ -4530,7 +4530,7 @@ static void init_ssl() {
+@@ -4812,7 +4812,7 @@ static void my_openssl_free(void *ptr FILE_LINE_ARGS) 
  
  static void init_ssl() {
  #ifdef HAVE_OPENSSL

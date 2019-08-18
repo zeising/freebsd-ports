@@ -1,6 +1,6 @@
---- mysys_ssl/my_md5.cc.orig	2018-04-08 06:44:49 UTC
-+++ mysys_ssl/my_md5.cc
-@@ -56,7 +56,7 @@ static void my_md5_hash(unsigned char *d
+--- mysys/my_md5.cc.orig	2019-06-25 10:23:30 UTC
++++ mysys/my_md5.cc
+@@ -56,7 +56,7 @@ static void my_md5_hash(unsigned char *digest, unsigne
  int compute_md5_hash(char *digest, const char *buf, int len) {
    int retval = 0;
    int fips_mode = 0;

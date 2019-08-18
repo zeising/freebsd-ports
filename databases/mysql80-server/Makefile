@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME?=		mysql
-PORTVERSION=		8.0.16
-PORTREVISION?=		4
+PORTVERSION=		8.0.17
+PORTREVISION?=		0
 CATEGORIES=		databases ipv6
 MASTER_SITES=		MYSQL/MySQL-8.0
 PKGNAMESUFFIX?=		80-server
@@ -18,7 +18,7 @@ WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}${DISTVERSIONSUFFIX}
 
 SLAVEDIRS=	databases/mysql80-client
 USES=		bison:build cmake:noninja compiler:c++14-lang cpe \
-		libedit localbase perl5 shebangfix ssl
+		libedit localbase perl5 shebangfix ssl pkgconfig
 
 USE_PERL5=	run
 
@@ -69,7 +69,7 @@ CMAKE_ARGS+=	-DINSTALL_LAYOUT=FREEBSD \
 SHEBANG_FILES=	scripts/*.pl* scripts/*.sh
 
 .ifdef USE_MYSQL
-.error You have `USE_MYSQL' variable defined either in environment or in make(1) arguments. Please undefine and try again.
+.error You have 'USE_MYSQL' variable defined either in environment or in make(1) arguments. Please undefine and try again.
 .endif
 
 SUB_LIST=	MY_DBDIR=${MY_DBDIR} \

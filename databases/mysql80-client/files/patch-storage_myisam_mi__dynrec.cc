@@ -1,6 +1,6 @@
---- storage/myisam/mi_dynrec.cc.orig	2016-03-28 18:06:12 UTC
+--- storage/myisam/mi_dynrec.cc.orig	2019-06-25 10:23:30 UTC
 +++ storage/myisam/mi_dynrec.cc
-@@ -65,18 +65,13 @@ bool mi_dynmap_file(MI_INFO *info, my
+@@ -83,17 +83,12 @@ bool mi_dynmap_file(MI_INFO *info, my_off_t size) {
      DBUG_RETURN(1);
    }
    /*
@@ -19,4 +19,4 @@
 +      MAP_SHARED, info->dfile, 0L);
    if (info->s->file_map == (uchar *)MAP_FAILED) {
      info->s->file_map = NULL;
-
+     DBUG_RETURN(1);

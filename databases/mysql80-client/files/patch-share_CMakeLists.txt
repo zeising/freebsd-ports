@@ -1,14 +1,14 @@
---- share/CMakeLists.txt.orig	2017-10-03 10:54:31 UTC
+--- share/CMakeLists.txt.orig	2019-06-25 10:23:30 UTC
 +++ share/CMakeLists.txt
-@@ -45,6 +45,7 @@ SET(files 
+@@ -52,6 +52,7 @@ SET(files 
   dictionary.txt
  )
  
 +IF (FALSE)
  FOREACH (dir ${dirs})
-   INSTALL(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${dir} 
+   INSTALL(DIRECTORY ${CMAKE_BINARY_DIR}/${INSTALL_MYSQLSHAREDIR}/${dir}
            DESTINATION ${INSTALL_MYSQLSHAREDIR}
-@@ -57,13 +58,16 @@ INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE
+@@ -64,13 +65,16 @@ INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/charsets
          COMPONENT Server
          PATTERN "languages.html" EXCLUDE
  )

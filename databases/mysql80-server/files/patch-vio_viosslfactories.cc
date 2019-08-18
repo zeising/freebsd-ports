@@ -1,6 +1,6 @@
---- vio/viosslfactories.cc.orig	2018-04-08 06:44:49 UTC
+--- vio/viosslfactories.cc.orig	2019-06-25 10:23:30 UTC
 +++ vio/viosslfactories.cc
-@@ -37,6 +37,7 @@
+@@ -38,6 +38,7 @@
  
  #ifdef HAVE_OPENSSL
  #include <openssl/dh.h>
@@ -8,7 +8,7 @@
  
  #define TLS_VERSION_OPTION_SIZE 256
  #define SSL_CIPHER_LIST_SIZE 4096
-@@ -135,7 +136,7 @@ static DH *get_dh2048(void) {
+@@ -136,7 +137,7 @@ static DH *get_dh2048(void) {
      BIGNUM *p = BN_bin2bn(dh2048_p, sizeof(dh2048_p), NULL);
      BIGNUM *g = BN_bin2bn(dh2048_g, sizeof(dh2048_g), NULL);
      if (!p || !g
@@ -17,7 +17,7 @@
          || !DH_set0_pqg(dh, p, NULL, g)
  #endif /* OPENSSL_VERSION_NUMBER >= 0x10100000L */
      ) {
-@@ -143,7 +144,7 @@ static DH *get_dh2048(void) {
+@@ -144,7 +145,7 @@ static DH *get_dh2048(void) {
        DH_free(dh);
        return NULL;
      }
@@ -26,7 +26,7 @@
      dh->p = p;
      dh->g = g;
  #endif /* OPENSSL_VERSION_NUMBER < 0x10100000L */
-@@ -426,7 +427,7 @@ void ssl_start() {
+@@ -429,7 +430,7 @@ void ssl_start() {
    }
  }
  
@@ -35,7 +35,7 @@
  /**
    Set fips mode in openssl library,
    When we set fips mode ON/STRICT, it will perform following operations:
-@@ -449,6 +450,10 @@ int set_fips_mode(const uint fips_mode, 
+@@ -452,6 +453,10 @@ int set_fips_mode(const uint fips_mode, char err_strin
    int rc = -1;
    unsigned int fips_mode_old = -1;
    unsigned long err_library = 0;
@@ -46,7 +46,7 @@
    if (fips_mode > 2) {
      goto EXIT;
    }
-@@ -462,6 +467,7 @@ int set_fips_mode(const uint fips_mode, 
+@@ -465,6 +470,7 @@ int set_fips_mode(const uint fips_mode, char err_strin
      ERR_error_string_n(err_library, err_string, OPENSSL_ERROR_LENGTH - 1);
      err_string[OPENSSL_ERROR_LENGTH - 1] = '\0';
    }

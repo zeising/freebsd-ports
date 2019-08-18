@@ -1,6 +1,6 @@
---- plugin/x/client/xconnection_impl.cc.orig	2018-04-08 06:44:49 UTC
+--- plugin/x/client/xconnection_impl.cc.orig	2019-06-25 10:23:30 UTC
 +++ plugin/x/client/xconnection_impl.cc
-@@ -182,12 +182,12 @@ XError ssl_verify_server_cert(Vio *vio, 
+@@ -221,12 +221,12 @@ XError ssl_verify_server_cert(Vio *vio, const std::str
      return XError{CR_SSL_CONNECTION_ERROR, "Failed to get CN from CN entry"};
    }
  
@@ -17,7 +17,7 @@
    const auto cn_len = static_cast<size_t>(ASN1_STRING_length(cn_asn1));
  
    // There should not be any NULL embedded in the CN
-@@ -451,7 +451,7 @@ XError Connection_impl::get_ssl_error(co
+@@ -523,7 +523,7 @@ XError Connection_impl::get_ssl_error(const int error_
    return XError(CR_SSL_CONNECTION_ERROR, buffer);
  }
  
@@ -26,7 +26,7 @@
  /**
    Set fips mode in openssl library,
    When we set fips mode ON/STRICT, it will perform following operations:
-@@ -501,7 +501,7 @@ XError Connection_impl::activate_tls() {
+@@ -573,7 +573,7 @@ XError Connection_impl::activate_tls() {
    if (!m_context->m_ssl_config.is_configured())
      return XError{CR_SSL_CONNECTION_ERROR, ER_TEXT_TLS_NOT_CONFIGURATED};
  

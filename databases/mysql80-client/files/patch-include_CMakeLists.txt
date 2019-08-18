@@ -1,6 +1,6 @@
---- include/CMakeLists.txt.orig	2017-09-21 15:51:58 UTC
+--- include/CMakeLists.txt.orig	2019-06-25 10:23:30 UTC
 +++ include/CMakeLists.txt
-@@ -30,11 +30,173 @@ SET(HEADERS
+@@ -36,10 +36,172 @@ SET(HEADERS
    ${CMAKE_CURRENT_BINARY_DIR}/mysql_version.h
    ${CMAKE_CURRENT_BINARY_DIR}/mysqld_error.h
    field_types.h
@@ -124,7 +124,7 @@
  SET(HEADERS_MYSQL_DIR
    mysql/client_plugin.h
    mysql/plugin_auth_common.h
-   mysql/udf_registration_types.h
++  mysql/udf_registration_types.h
 +  mysql/client_authentication.h
 +  mysql/client_plugin.h.pp
 +  mysql/com_data.h
@@ -170,7 +170,6 @@
 +  mysql/services.h.pp
 +  mysql/thread_pool_priv.h
 +  mysql/thread_type.h
-+  mysql/udf_registration_types.h
+   mysql/udf_registration_types.h
  )
  
- INSTALL(FILES ${HEADERS} DESTINATION ${INSTALL_INCLUDEDIR} COMPONENT Development)
