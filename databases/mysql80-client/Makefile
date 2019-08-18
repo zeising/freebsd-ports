@@ -20,7 +20,7 @@ CONFLICTS_INSTALL=	mysql8[1-9]-client-* \
 			mariadb[0-9][0-9]-client-* \
 			percona[0-9][0-9]-client-*
 
-BUILD_DEPENDS+=	libunwind>0:devel/libunwind
+LIB_DEPENDS+=	libunwind.so:devel/libunwind
 
 CMAKE_ARGS+=	-DWITHOUT_SERVER=1 -DINSTALL_SUPPORTFILESDIR=0
 
