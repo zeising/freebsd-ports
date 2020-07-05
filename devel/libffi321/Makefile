@@ -1,5 +1,5 @@
 # Created by: Horance Chou <horance@freedom.ie.cycu.edu.tw>
-# $FreeBSD: head/devel/libffi/Makefile 484628 2018-11-10 18:12:57Z bapt $
+# $FreeBSD$
 
 PORTNAME=	libffi
 PORTVERSION=	3.2.1
@@ -13,7 +13,7 @@ COMMENT=	Foreign Function Interface (stripped down compat version)
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		libtool pathfix
+USES=		libtool
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--libdir=${PREFIX}/lib/compat \
