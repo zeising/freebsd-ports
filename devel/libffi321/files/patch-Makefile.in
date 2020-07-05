@@ -1,0 +1,10 @@
+--- Makefile.in.orig	2020-07-05 09:21:46 UTC
++++ Makefile.in
+@@ -606,7 +606,6 @@ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = foreign subdir-objects
+ ACLOCAL_AMFLAGS = -I m4
+-SUBDIRS = include testsuite man
+ EXTRA_DIST = LICENSE ChangeLog.v1 ChangeLog.libgcj			\
+ 	 src/aarch64/ffi.c src/aarch64/ffitarget.h src/aarch64/sysv.S	\
+ 	 src/alpha/ffi.c src/alpha/osf.S			\
