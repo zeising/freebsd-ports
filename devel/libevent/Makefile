@@ -13,9 +13,10 @@ COMMENT=	API for executing callback functions on events or timeouts
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		libtool pathfix pkgconfig python:env shebangfix
+USES=		cpe libtool pathfix pkgconfig python:env shebangfix
 SHEBANG_FILES=	event_rpcgen.py
 GNU_CONFIGURE=	yes
+CPE_VENDOR=	libevent_project
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
 USE_LDCONFIG=	yes
