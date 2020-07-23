@@ -11,6 +11,7 @@
     SUBDIR += R-cran-bibtex
     SUBDIR += R-cran-brew
     SUBDIR += R-cran-cellranger
+    SUBDIR += R-cran-commonmark
     SUBDIR += R-cran-formatR
     SUBDIR += R-cran-highr
     SUBDIR += R-cran-htmltools
@@ -519,6 +520,7 @@
     SUBDIR += p5-HTML-FormatText-WithLinks
     SUBDIR += p5-HTML-FormatText-WithLinks-AndTables
     SUBDIR += p5-HTML-Fraction
+    SUBDIR += p5-HTML-FromANSI-Tiny
     SUBDIR += p5-HTML-HTML5-Entities
     SUBDIR += p5-HTML-HTML5-Parser
     SUBDIR += p5-HTML-HTMLDoc
@@ -628,6 +630,7 @@
     SUBDIR += p5-PPIx-QuoteLike
     SUBDIR += p5-PPIx-Regexp
     SUBDIR += p5-PPIx-Utilities
+    SUBDIR += p5-Parse-ANSIColor-Tiny
     SUBDIR += p5-Parse-BooleanLogic
     SUBDIR += p5-Parse-CSV
     SUBDIR += p5-Parse-FixedLength
@@ -750,6 +753,7 @@
     SUBDIR += p5-String-HexConvert
     SUBDIR += p5-String-Koremutake
     SUBDIR += p5-String-LCSS
+    SUBDIR += p5-String-Pad
     SUBDIR += p5-String-Print
     SUBDIR += p5-String-RewritePrefix
     SUBDIR += p5-String-Scanf
@@ -776,6 +780,7 @@
     SUBDIR += p5-Template-Magic
     SUBDIR += p5-Template-Plugin-Autoformat
     SUBDIR += p5-Template-Plugin-CSV
+    SUBDIR += p5-Template-Plugin-Data-Printer
     SUBDIR += p5-Template-Plugin-Filter-Minify-CSS
     SUBDIR += p5-Template-Plugin-Filter-Minify-CSS-XS
     SUBDIR += p5-Template-Plugin-Filter-Minify-JavaScript
@@ -1258,6 +1263,7 @@
     SUBDIR += py-grako
     SUBDIR += py-guess-language
     SUBDIR += py-hexdump
+    SUBDIR += py-hieroglyph
     SUBDIR += py-html2text
     SUBDIR += py-html2text2018
     SUBDIR += py-humanfriendly
@@ -1361,9 +1367,9 @@
     SUBDIR += py-snowballstemmer
     SUBDIR += py-sparqlwrapper
     SUBDIR += py-sphinx
+    SUBDIR += py-sphinx-argparse
     SUBDIR += py-sphinx-autoapi
     SUBDIR += py-sphinx-autodoc-typehints
-    SUBDIR += py-sphinx-hieroglyph
     SUBDIR += py-sphinx-intl
     SUBDIR += py-sphinx-me
     SUBDIR += py-sphinx-tabs
@@ -1555,6 +1561,7 @@
     SUBDIR += rubygem-js_regex
     SUBDIR += rubygem-jsmin
     SUBDIR += rubygem-kramdown
+    SUBDIR += rubygem-kramdown22
     SUBDIR += rubygem-kramdown-parser-gfm
     SUBDIR += rubygem-kramdown1
     SUBDIR += rubygem-kwalify
@@ -1676,7 +1683,6 @@
     SUBDIR += saxon-devel
     SUBDIR += saxon-he
     SUBDIR += sc-aspell
-    SUBDIR += scancode-toolkit
     SUBDIR += scdoc
     SUBDIR += scew
     SUBDIR += scim
